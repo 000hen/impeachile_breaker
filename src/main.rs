@@ -1,4 +1,5 @@
 use rand::{Rng, distr::Alphanumeric};
+use random_word::Lang;
 
 // const URL_A: &str = "https://impeachlie.doce.cc/api/trpc/petition.submitStage1?batch=1";
 // const URL_B: &str = "https://impeachlie.doce.cc/api/trpc/petition.submitStage2?batch=1";
@@ -39,7 +40,9 @@ fn rand_email_domain() -> String {
 }
 
 fn send_a_type(client: &reqwest::blocking::Client, thread_id: usize) {
-    let name = random_string(10);
+    let name = random_word::get_len(rand::random_range(2..10), Lang::Zh)
+        .map(|s| s.to_string())
+        .unwrap_or_else(|| random_string(rand::random_range(5..100)));
     let email = format!(
         "{}@{}",
         random_string(rand::random_range(5..20)),
