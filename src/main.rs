@@ -2,8 +2,10 @@ use rand::{Rng, distr::Alphanumeric};
 
 // const URL_A: &str = "https://impeachlie.doce.cc/api/trpc/petition.submitStage1?batch=1";
 // const URL_B: &str = "https://impeachlie.doce.cc/api/trpc/petition.submitStage2?batch=1";
-const URL_A: &str = "https://impeachlie.doce.cc/api/trpc/petition.submit?batch=1";
-const URL_B: &str = "https://impeachlie.doce.cc/api/trpc/petition.updateSignature?batch=1";
+// const URL_A: &str = "https://impeachlie.doce.cc/api/trpc/petition.submit?batch=1";
+// const URL_B: &str = "https://impeachlie.doce.cc/api/trpc/petition.updateSignature?batch=1";
+const URL_A: &str = "https://impeach-lie.doce.cc/api/trpc/signature.submit?batch=1";
+const URL_B: &str = "https://impeach-lie.doce.cc/api/trpc/signature.update?batch=1";
 
 fn random_string(len: usize) -> String {
     let rng = rand::rng();
