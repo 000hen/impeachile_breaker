@@ -1,0 +1,9 @@
+[package]
+name = "impeachile_breaker"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.9.2"
+reqwest = { version = "0.12.26", features = ["json", "blocking"] }
+serde_json = "1.0.145"
