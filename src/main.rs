@@ -22,12 +22,28 @@ fn rand_num_as_string(len: usize) -> String {
         .collect()
 }
 
+fn rand_email_domain() -> String {
+    let domains: Vec<String> = vec![
+        "gmail.com".to_string(),
+        "yahoo.com".to_string(),
+        "yahoo.com.tw".to_string(),
+        "outlook.com".to_string(),
+        "hotmail.com".to_string(),
+        "apple.com".to_string(),
+        "aol.com".to_string(),
+        "icloud.com".to_string(),
+        format!("{}.com", random_string(5)),
+    ];
+    let mut rng = rand::rng();
+    domains[rng.random_range(0..domains.len())].clone()
+}
+
 fn send_a_type(client: &reqwest::blocking::Client, thread_id: usize) {
     let name = random_string(10);
     let email = format!(
-        "{}@{}.com",
+        "{}@{}",
         random_string(rand::random_range(5..20)),
-        random_string(rand::random_range(5..20))
+        rand_email_domain()
     );
     let body = serde_json::json!({"0":{"json":{"name":name,"email":email,"source":"direct"}}});
 
